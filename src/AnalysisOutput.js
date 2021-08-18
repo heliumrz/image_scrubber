@@ -28,12 +28,31 @@ class AnalysisOutput extends React.Component {
         this.setState({ file: signed })
     }
 
+    uploadImage = () => {
+        Storage.put(`analyzeOutput/${this.upload.files[0].name}`,
+            this.upload.files[0],
+            { contentType: this.upload.files[0].type })
+            .then(result => {
+                this.upload = null;
+                this.setState({ response: "Success uploading file!" });
+            })
+            .catch(err => {
+                this.setState({ response: `Cannot uploading file: ${err}` });
+            });
+    };
+
     render() {
         return (
             <div>
                 <input
-                    type="file" accept='JSON'
-                    onChange={(e) => this.onChange(e)}
+                    type="file"
+                    accept="json"
+                    ref={ref => (this.upload = ref)}
+                    onChange={e =>
+                        {   this.uploadImage();
+                            this.onChange(e);
+                        }
+                    }
                 />
                 <button onClick={this.listFiles}>
                     List Files

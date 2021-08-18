@@ -27,14 +27,30 @@ class ImageOutput extends React.Component {
         this.setState({ files: signedFiles })
     }
 
+    uploadImage = () => {
+        Storage.put(`imageOutput/${this.upload.files[0].name}`,
+            this.upload.files[0],
+            { contentType: this.upload.files[0].type })
+            .then(result => {
+                this.upload = null;
+                this.setState({ response: "Success uploading file!" });
+            })
+            .catch(err => {
+                this.setState({ response: `Cannot uploading file: ${err}` });
+            });
+    };
+
     render() {
         return (
             <div>
                 <h2>Output Image Album</h2>
                 <input
-                    type="file" accept='image/png'
-                    onChange={(e) => this.onChange(e)}
+                    type="file"
+                    accept="image/png"
+                    ref={ref => (this.upload = ref)}
+                    onChange={e =>this.uploadImage()}
                 />
+
                 <button onClick={this.listFiles}>
                     List Files
                 </button>

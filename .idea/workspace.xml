@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b9744620-35b0-432b-9ad3-2503d36a76a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/storage/images/parameters.json" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/storage/images/parameters.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AnalysisOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AnalysisOutput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageOutput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ImageProcess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageProcess.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +49,7 @@
       <recent name="$PROJECT_DIR$/src/images" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.ImageProcess.js">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -61,8 +64,12 @@
     <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/App.js" working-dir="$PROJECT_DIR$/src">
       <method v="2" />
     </configuration>
+    <configuration name="ImageProcess.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/ImageProcess.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.ImageProcess.js" />
         <item itemvalue="Node.js.App.js" />
       </list>
     </recent_temporary>
