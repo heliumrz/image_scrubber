@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Clothing from "./Clothing";
+import ImageProcess from "./ImageProcess";
+import ImageOutput from "./ImageOutput";
+import AnalysisOutput from "./AnalysisOutput";
 import App from "./App";
 
 
@@ -17,13 +19,10 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/Clothing" component={Clothing} />
+            <Route path="/ImageProcess" component={ImageProcess} />
+            <Route path="/ImageOutput" component={ImageOutput} />
+            <Route path="/AnalysisOutput" component={AnalysisOutput} />
         </Switch>
     </BrowserRouter>,
     rootElement
 );
-
-
-
-
-

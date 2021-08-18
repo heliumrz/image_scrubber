@@ -1,8 +1,6 @@
-
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,7 +11,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-//import Link from '@material-ui/core/Link';
 import './App.css';
 import Amplify from 'aws-amplify';
 import aws_exports from './aws-exports';
@@ -22,6 +19,7 @@ import '@aws-amplify/ui/dist/style.css';
 import image1 from './images/5990111.jpg';
 import image2 from './images/blurface.jpg';
 import image3 from './images/words.jpg';
+import {AmplifySignOut} from "@aws-amplify/ui-react";
 
 Amplify.configure(aws_exports);
 
@@ -30,9 +28,6 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            {/*<Link color="inherit" href="https://material-ui.com/">*/}
-            {/*    Your Website*/}
-            {/*</Link>{' '}*/}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
@@ -70,8 +65,6 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(6),
     },
 }));
-
-const cards = [1, 2, 3];
 
 function App() {
     const classes = useStyles();
@@ -117,7 +110,6 @@ function App() {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {/*{cards.map((card) => (*/}
                             <Grid item key={1} xs={12} sm={6} md={4}>
                                 <Card className={classes.card}>
                                     <CardMedia
@@ -130,11 +122,11 @@ function App() {
                                             Image Processing
                                         </Typography>
                                         <Typography>
-                                            Users can upload image(s) to this tool and choose perform image scrubbing and analysis.
+                                            Users can upload image(s) to this tool and perform image scrubbing and analysis.
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Link to="/Clothing"><Button variant="outlined" color="primary">
+                                        <Link to="/ImageProcess"><Button variant="outlined" color="primary">
                                             Try Me
                                         </Button>
                                         </Link>
@@ -157,7 +149,7 @@ function App() {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Link to="/Clothing"><Button variant="outlined" color="primary">
+                                        <Link to="/ImageOutput"><Button variant="outlined" color="primary">
                                             View
                                         </Button>
                                         </Link>
@@ -180,14 +172,13 @@ function App() {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Link to="/Clothing"><Button variant="outlined" color="primary">
+                                        <Link to="/AnalysisOutput"><Button variant="outlined" color="primary">
                                             View
                                         </Button>
                                         </Link>
                                     </CardActions>
                                 </Card>
                             </Grid>
-                        {/*))}*/}
                     </Grid>
                 </Container>
             </main>
@@ -197,11 +188,12 @@ function App() {
                     TEAM SCRUBS AND SCAN
                 </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    
+
                 </Typography>
                 <Copyright />
             </footer>
             {/* End footer */}
+            <AmplifySignOut />
         </React.Fragment>
     );
 }
