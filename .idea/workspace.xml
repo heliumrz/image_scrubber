@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9744620-35b0-432b-9ad3-2503d36a76a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amplify/.config/project-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/.config/project-config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amplify/backend/auth/cognitocf0c6096/cognitocf0c6096-cloudformation-template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/auth/cognitocf0c6096/cognitocf0c6096-cloudformation-template.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amplify/backend/auth/cognitocf0c6096/parameters.json" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/auth/cognitocf0c6096/parameters.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amplify/backend/backend-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/backend-config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Clothing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PhotoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/5990111.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/blurface.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/words.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.graphqlconfig.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.graphqlconfig.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/storage/images/s3-cloudformation-template.json" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/storage/images/s3-cloudformation-template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CreatePost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreatePost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,9 +55,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -60,6 +75,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/App.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.App.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -69,11 +92,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629173854939</updated>
-      <workItem from="1629173856855" duration="3192000" />
+      <workItem from="1629173856855" duration="23648000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="includedJSSourcePackages">
+      <set>
+        <option value="aws-sdk" />
+      </set>
+    </option>
   </component>
 </project>
