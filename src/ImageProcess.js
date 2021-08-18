@@ -1,15 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-import Amplify from 'aws-amplify';
-import { API, Storage, Auth } from 'aws-amplify';
+import Amplify, { API, Storage, Auth } from 'aws-amplify';
 import { v4 as uuid } from 'uuid'
 import aws_exports from './aws-exports';
 import {Link} from "react-router-dom";
 Amplify.configure(aws_exports);
 
+Amplify.configure({
+    // Add in our new API, "name" can be whatever we want
+    API: {
+        endpoints: [
+            {
+                name: "ScrubAnalyzeImage",
+                endpoint:
+                    "https://asz8cwoba9.execute-api.us-east-2.amazonaws.com/test/",
+            },
+        ],
+    },
+});
+
 function ImageProcess() {
-    const [images, setImages] = useState([])
+    const [images, setImages] = useState([]);
+    const [apiData, setApiData] = React.useState("");
+
     useEffect(() => {
         fetchImages()
     }, [])
@@ -25,11 +39,19 @@ function ImageProcess() {
         setImages(s3images)
     }
 
+    const handleClick = async () => {
+        const response = await API.get("ScrubAnalyzeImage", "/image", {
+            headers: {},
+            response: true
+        });
+        alert("Your image is being processed!");
+    };
+
     function onChange(e) {
         if (!e.target.files[0]) return
         const file = e.target.files[0];
         // upload the image then fetch and rerender images
-        Storage.put(uuid(), file).then(() => fetchImages())
+        Storage.put(uuid(), file).then(() => { fetchImages(); alert("Your image is being processed!");} );
     }
 
     return (
