@@ -4,13 +4,14 @@ import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import Amplify from 'aws-amplify';
 import { API, Storage, Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
-import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
+import {SplitPane} from 'react-multi-split-pane';
 Amplify.configure(aws_exports);
 
 class ImageOutput extends React.Component {
     state = {
-        files: []
+        files: [],
+        inputFiles: []
     }
     onChange(e) {
         const file = e.target.files[0]
@@ -25,6 +26,14 @@ class ImageOutput extends React.Component {
         signedFiles = await Promise.all(signedFiles)
         console.log('signedFiles: ', signedFiles)
         this.setState({ files: signedFiles })
+    }
+
+    listInputFiles = async () => {
+        const files = await Storage.list('input')
+        let signedFiles = files.map(f => Storage.get(f.key))
+        signedFiles = await Promise.all(signedFiles)
+        console.log('signedFiles: ', signedFiles)
+        this.setState({ inputFiles: signedFiles })
     }
 
     uploadImage = () => {
@@ -42,34 +51,58 @@ class ImageOutput extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Output Image Album</h2>
-                <input
-                    type="file"
-                    accept="image/png"
-                    ref={ref => (this.upload = ref)}
-                    onChange={e =>this.uploadImage()}
-                />
-
-                <button onClick={this.listFiles}>
-                    List Files
-                </button>
-                <Link to="/"><button>
-                    Home Page
-                </button>
-                </Link>
+            <SplitPane split="horizontal" minSize={50}>
                 <div>
-                    {
-                        this.state.files.map((file, i) => (
-                            <img
-                                key={i}
-                                src={file}
-                                style={{height: 300}}
-                            />
-                        ))
-                    }
+                    <h2>Input Image Album</h2>
+                    <button onClick={this.listInputFiles}>
+                        List Files
+                    </button>
+                    <Link to="/"><button>
+                        Home Page
+                    </button>
+                    </Link>
+                    <div>
+                        {
+                            this.state.inputFiles.map((file, i) => (
+                                <img
+                                    key={i}
+                                    src={file}
+                                    style={{height: 300}}
+                                />
+                            ))
+                        }
+                    </div>
                 </div>
-            </div>
+                <div>
+                    <h2>Output Image Album</h2>
+                    <input
+                        type="file"
+                        accept="image/png"
+                        ref={ref => (this.upload = ref)}
+                        onChange={e =>this.uploadImage()}
+                    />
+
+                    <button onClick={this.listFiles}>
+                        List Files
+                    </button>
+                    <Link to="/"><button>
+                        Home Page
+                    </button>
+                    </Link>
+                    <div>
+                        {
+                            this.state.files.map((file, i) => (
+                                <img
+                                    key={i}
+                                    src={file}
+                                    style={{height: 300}}
+                                />
+                            ))
+                        }
+                    </div>
+                </div>
+                <div></div>
+            </SplitPane>
         )
     }
 }
