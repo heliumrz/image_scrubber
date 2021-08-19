@@ -51,7 +51,7 @@ class ImageOutput extends React.Component {
 
     render() {
         return (
-            <SplitPane split="horizontal" minSize={50}>
+            <SplitPane split="horizontal" minSize={400}>
                 <div>
                     <h2>Input Image Album</h2>
                     <button onClick={this.listInputFiles}>
@@ -101,7 +101,6 @@ class ImageOutput extends React.Component {
                         }
                     </div>
                 </div>
-                <div></div>
             </SplitPane>
         )
     }

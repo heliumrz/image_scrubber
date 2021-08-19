@@ -5,6 +5,7 @@ import Amplify, { API, Storage} from 'aws-amplify';
 import { v4 as uuid } from 'uuid'
 import aws_exports from './aws-exports';
 import {Link} from "react-router-dom";
+import ReactUpload from 'react-s3-upload';
 Amplify.configure(aws_exports);
 
 Amplify.configure({
@@ -14,7 +15,7 @@ Amplify.configure({
             {
                 name: "ScrubAnalyzeImage",
                 endpoint:
-                    "https://asz8cwoba9.execute-api.us-east-2.amazonaws.com/test/",
+                    "https://asz8cwoba9.execute-api.us-east-2.amazonaws.com/test",
             },
         ],
     },
@@ -24,6 +25,7 @@ function ImageProcess() {
     const [images, setImages] = useState([]);
     const [apiData, setApiData] = React.useState("");
     let upload = useRef(null);
+    const AmazonS3URI = require('amazon-s3-uri')
 
     useEffect(() => {
         fetchImages()
@@ -40,19 +42,18 @@ function ImageProcess() {
         setImages(s3images)
     }
 
-    const handleClick = async () => {
-        const response = await API.get("ScrubAnalyzeImage", "/image", {
-            headers: {},
-            response: true
-        });
-        alert("Your image is being processed!");
-    };
-
     function onChange(e) {
         if (!e.target.files[0]) return
         const file = e.target.files[0];
+        const key = uuid();
+        const uri = `s3://cet-hackathon-image-scrubber211328-devh/public/input/${key}`;
         // upload the image then fetch and rerender images
-        Storage.put(uuid(), file).then(() => { alert("Your image is being processed!");} );
+        Storage.put('input/'+key, file);
+        fetch(`https://asz8cwoba9.execute-api.us-east-2.amazonaws.com/test/images?imageUri=${uri}`, {
+            method: 'GET',
+            headers: {
+            },
+        }).then(alert("Your image is being processed!"));
     }
 
     async function listFiles() {
@@ -93,7 +94,7 @@ function ImageProcess() {
                     Home Page
                 </button>
                 </Link>
-                <button onClick={removeImages}> Remove Images </button>
+                {/*<button onClick={removeImages}> Remove Images </button>*/}
                 <>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         {images.map(image => <img src={image} style={{width: 300, marginBottom: 10}}/>)}
