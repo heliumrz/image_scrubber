@@ -6,6 +6,7 @@ import { API, Storage, Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
 import {Link} from "react-router-dom";
 import {SplitPane} from 'react-multi-split-pane';
+import ScrollArea from "react-scrollbar";
 Amplify.configure(aws_exports);
 
 class ImageOutput extends React.Component {
@@ -52,7 +53,14 @@ class ImageOutput extends React.Component {
     render() {
         return (
             <SplitPane split="horizontal" minSize={400}>
+                <ScrollArea
+                    speed={0.8}
+                    className="area"
+                    contentClassName="content"
+                    vertical={true}
+                >
                 <div>
+
                     <h2>Input Image Album</h2>
                     <button onClick={this.listInputFiles}>
                         List Files
@@ -73,6 +81,13 @@ class ImageOutput extends React.Component {
                         }
                     </div>
                 </div>
+                </ScrollArea>
+                <ScrollArea
+                    speed={0.8}
+                    className="area"
+                    contentClassName="content"
+                    vertical={true}
+                >
                 <div>
                     <h2>Output Image Album</h2>
                     <input
@@ -101,6 +116,7 @@ class ImageOutput extends React.Component {
                         }
                     </div>
                 </div>
+                </ScrollArea>
             </SplitPane>
         )
     }
